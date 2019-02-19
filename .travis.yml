@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t bswhite/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run bswhite/docker-react npm run test -- --coverage
